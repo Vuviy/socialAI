@@ -102,16 +102,17 @@
                     <h1 class="mb-2">Sign in</h1>
                     <p class="mb-0">Don't have an account?<a href="{{@route('sign_up')}}"> Click here to sign up</a></p>
                     <!-- Form START -->
-                    <form class="mt-sm-4">
+                    <form class="mt-sm-4" action="{{@route('login')}}" method="post">
+                        @csrf
                         <!-- Email -->
                         <div class="mb-3 input-group-lg">
-                            <input type="email" class="form-control" placeholder="Enter email">
+                            <input type="email" name="email" class="form-control" placeholder="Enter email">
                         </div>
                         <!-- New password -->
                         <div class="mb-3 position-relative">
                             <!-- Password -->
                             <div class="input-group input-group-lg">
-                                <input class="form-control fakepassword" type="password" id="psw-input" placeholder="Enter new password">
+                                <input class="form-control fakepassword" name="password" type="password" id="psw-input" placeholder="Enter new password">
                                 <span class="input-group-text p-0">
                   <i class="fakepasswordicon fa-solid fa-eye-slash cursor-pointer p-2 w-40px"></i>
                 </span>

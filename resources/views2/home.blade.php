@@ -8,7 +8,7 @@
     <div class="row g-4">
 
     <!-- Sidenav START -->
-    @include('components.left-sidenav')
+{{--    @include('components.left-sidenav')--}}
     <!-- Sidenav END -->
 
     <!-- Main content START -->

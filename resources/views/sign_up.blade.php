@@ -101,20 +101,35 @@
                     <div class="text-center">
                         <!-- Title -->
                         <h1 class="mb-2">Sign up</h1>
-                        <span class="d-block">Already have an account? <a href="{{@route('sign_in')}}">Sign in here</a></span>
+                        <span class="d-block">Already have an account? <a href="{{route('sign_in')}}">Sign in here</a></span>
                     </div>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                @endif
                     <!-- Form START -->
-                    <form class="mt-4">
+                    <form class="mt-4" action="{{route('register')}}" method="post">
+                        @csrf
+                        <!-- Name -->
+                        <div class="mb-3 input-group-lg">
+                            <input type="text" value="{{@old('name')}}" name="name" class="form-control" placeholder="Enter name">
+                            <small>We'll never share your email with anyone else.</small>
+                        </div>
                         <!-- Email -->
                         <div class="mb-3 input-group-lg">
-                            <input type="email" class="form-control" placeholder="Enter email">
+                            <input type="email" value="{{@old('email')}}" name="email" class="form-control" placeholder="Enter email">
                             <small>We'll never share your email with anyone else.</small>
                         </div>
                         <!-- New password -->
                         <div class="mb-3 position-relative">
                             <!-- Input group -->
                             <div class="input-group input-group-lg">
-                                <input class="form-control fakepassword" type="password" id="psw-input" placeholder="Enter new password">
+                                <input class="form-control fakepassword" name="password" type="password" id="psw-input" placeholder="Enter new password">
                                 <span class="input-group-text p-0">
                   <i class="fakepasswordicon fa-solid fa-eye-slash cursor-pointer p-2 w-40px"></i>
                 </span>
@@ -131,7 +146,7 @@
                         </div>
                         <!-- Confirm password -->
                         <div class="mb-3 input-group-lg">
-                            <input class="form-control" type="password" placeholder="Confirm password">
+                            <input class="form-control" name="password_confirmation" type="password" placeholder="Confirm password">
                         </div>
                         <!-- Keep me signed in -->
                         <div class="mb-3 text-start">

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Social - Network, Community and Event Theme</title>
+    <title>Social</title>
 
 
     <!-- Dark mode -->
@@ -71,27 +71,27 @@
     <meta name="author" content="Webestica.com">
     <meta name="description" content="Bootstrap 5 based Social Media Network and Community Theme">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{@asset('img')}}/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('img')}}/favicon.ico">
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" type="text/css" href="{{@asset('css')}}/all.min.css">
-    <link rel="stylesheet" type="text/css" href="{{@asset('css')}}/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="{{@asset('css')}}/OverlayScrollbars.min.css">
-    <link rel="stylesheet" type="text/css" href="{{@asset('css')}}/tiny-slider.css">
-    <link rel="stylesheet" type="text/css" href="{{@asset('css')}}/choices.min.css">
-    <link rel="stylesheet" type="text/css" href="{{@asset('css')}}/glightbox.min.css">
-    <link rel="stylesheet" type="text/css" href="{{@asset('css')}}/dropzone.css">
-    <link rel="stylesheet" type="text/css" href="{{@asset('css')}}/flatpickr.css">
-    <link rel="stylesheet" type="text/css" href="{{@asset('css')}}/plyr.css">
-    <link rel="stylesheet" type="text/css" href="{{@asset('css')}}/zuck.min.css">
-{{--    <link rel="stylesheet" type="text/css" href="{{@asset('css')}}/font-awesome.min.css">--}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css')}}/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css')}}/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css')}}/OverlayScrollbars.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css')}}/tiny-slider.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css')}}/choices.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css')}}/glightbox.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css')}}/dropzone.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css')}}/flatpickr.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css')}}/plyr.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css')}}/zuck.min.css">
+{{--    <link rel="stylesheet" type="text/css" href="{{ asset('css')}}/font-awesome.min.css">--}}
 
 <!-- Theme CSS -->
-    <link rel="stylesheet" type="text/css" href="{{@asset('css')}}/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css')}}/style.css">
 
     {{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">--}}
 
@@ -107,9 +107,9 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <!-- Logo START -->
-            <a class="navbar-brand" href="{{@route('home')}}">
-                <img class="light-mode-item navbar-brand-item" src="{{@asset('img')}}/logo.svg" alt="logo">
-                <img class="dark-mode-item navbar-brand-item" src="{{@asset('img')}}/logo.svg" alt="logo">
+            <a class="navbar-brand" href="{{ route('home')}}">
+                <img class="light-mode-item navbar-brand-item" src="{{ asset('img')}}/logo.svg" alt="logo">
+                <img class="dark-mode-item navbar-brand-item" src="{{ asset('img')}}/logo.svg" alt="logo">
             </a>
             <!-- Logo END -->
 
@@ -141,7 +141,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link active dropdown-toggle" href="#" id="homeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demo</a>
                         <ul class="dropdown-menu" aria-labelledby="homeMenu">
-                            <li> <a class="dropdown-item active" href="{{@route('home')}}">Home default</a></li>
+                            <li> <a class="dropdown-item active" href="{{ route('home')}}">Home default</a></li>
                             <li> <a class="dropdown-item" href="index-classic.html">Home classic</a></li>
                             <li> <a class="dropdown-item" href="index-post.html">Home post</a></li>
                             <li> <a class="dropdown-item" href="index-video.html">Home video</a></li>
@@ -162,12 +162,12 @@
                         <ul class="dropdown-menu" aria-labelledby="pagesMenu">
                             <li> <a class="dropdown-item" href="albums.html">Albums</a></li>
                             <li> <a class="dropdown-item" href="celebration.html">Celebration</a></li>
-                            <li> <a class="dropdown-item" href="{{@route('messaging')}}">Messaging</a></li>
+                            <li> <a class="dropdown-item" href="{{ route('messaging')}}">Messaging</a></li>
                             <!-- Dropdown submenu -->
                             <li class="dropdown-submenu dropend">
                                 <a class="dropdown-item dropdown-toggle" href="#!">Profile</a>
                                 <ul class="dropdown-menu" data-bs-popper="none">
-                                    <li> <a class="dropdown-item" href="{{@route('profile')}}">Feed</a> </li>
+                                    <li> <a class="dropdown-item" href="{{ route('profile')}}">Feed</a> </li>
                                     <li> <a class="dropdown-item" href="my-profile-about.html">About</a> </li>
                                     <li> <a class="dropdown-item" href="my-profile-connections.html">Connections</a> </li>
                                     <li> <a class="dropdown-item" href="my-profile-media.html">Media</a> </li>
@@ -215,7 +215,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="postMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account </a>
                         <ul class="dropdown-menu" aria-labelledby="postMenu">
                             <li> <a class="dropdown-item" href="create-page.html">Create a page</a></li>
-                            <li> <a class="dropdown-item" href="{{@route('settings')}}">Settings</a> </li>
+                            <li> <a class="dropdown-item" href="{{ route('settings')}}">Settings</a> </li>
                             <li> <a class="dropdown-item" href="notifications.html">Notifications</a> </li>
                             <li> <a class="dropdown-item" href="help.html">Help center</a> </li>
                             <li> <a class="dropdown-item" href="help-details.html">Help details</a> </li>
@@ -223,8 +223,14 @@
                             <li class="dropdown-submenu dropstart">
                                 <a class="dropdown-item dropdown-toggle" href="#">Authentication</a>
                                 <ul class="dropdown-menu dropdown-menu-end" data-bs-popper="none">
-                                    <li> <a class="dropdown-item" href="{{@route('sign_in')}}">Sign in</a> </li>
-                                    <li> <a class="dropdown-item" href="{{@route('sign_up')}}">Sing up</a> </li>
+                                    <li> <a class="dropdown-item" href="{{ route('sign_in')}}">Sign in</a> </li>
+                                    <li> <a class="dropdown-item" href="{{ route('sign_up')}}">Sing up</a> </li>
+                                    @if(auth()->user())
+                                    <li> <form action="{{ route('logout')}}" method="post" class="dropdown-item">
+                                            @csrf
+                                            <input type="submit" value="Logout">
+                                        </form> </li>
+                                    @endif
                                     <li> <a class="dropdown-item" href="forgot-password.html">Forgot password</a> </li>
                                     <li class="dropdown-divider"></li>
                                     <li> <a class="dropdown-item" href="sign-in-advance.html">Sign in advance</a> </li>
@@ -240,7 +246,7 @@
 
                     <!-- Nav item 4 Mega menu -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{{@route('profile')}}">My network</a>
+                        <a class="nav-link" href="{{ route('profile')}}">My network</a>
                     </li>
                 </ul>
             </div>
@@ -249,12 +255,12 @@
             <!-- Nav right START -->
             <ul class="nav flex-nowrap align-items-center ms-sm-3 list-unstyled">
                 <li class="nav-item ms-2">
-                    <a class="nav-link bg-light icon-md btn btn-light p-0" href="{{@route('messaging')}}">
+                    <a class="nav-link bg-light icon-md btn btn-light p-0" href="{{ route('messaging')}}">
                         <i class="bi bi-chat-left-text-fill fs-6"> </i>
                     </a>
                 </li>
                 <li class="nav-item ms-2">
-                    <a class="nav-link bg-light icon-md btn btn-light p-0" href="{{@route('settings')}}">
+                    <a class="nav-link bg-light icon-md btn btn-light p-0" href="{{ route('settings')}}">
                         <i class="bi bi-gear-fill fs-6"> </i>
                     </a>
                 </li>
@@ -275,7 +281,7 @@
                                     <li>
                                         <div class="list-group-item list-group-item-action rounded badge-unread d-flex border-0 mb-1 p-3">
                                             <div class="avatar text-center d-none d-sm-inline-block">
-                                                <img class="avatar-img rounded-circle" src="{{@asset('img')}}/01.jpg" alt="">
+                                                <img class="avatar-img rounded-circle" src="{{ asset('img')}}/01.jpg" alt="">
                                             </div>
                                             <div class="ms-sm-3">
                                                 <div class=" d-flex">
@@ -293,7 +299,7 @@
                                     <li>
                                         <div class="list-group-item list-group-item-action rounded badge-unread d-flex border-0 mb-1 p-3 position-relative">
                                             <div class="avatar text-center d-none d-sm-inline-block">
-                                                <img class="avatar-img rounded-circle" src="{{@asset('img')}}/02.jpg" alt="">
+                                                <img class="avatar-img rounded-circle" src="{{ asset('img')}}/02.jpg" alt="">
                                             </div>
                                             <div class="ms-sm-3 d-flex">
                                                 <div>
@@ -322,7 +328,7 @@
                                     <li>
                                         <a href="#" class="list-group-item list-group-item-action rounded d-flex border-0 p-3 mb-1">
                                             <div class="avatar text-center d-none d-sm-inline-block">
-                                                <img class="avatar-img rounded-circle" src="{{@asset('img')}}/12.svg" alt="">
+                                                <img class="avatar-img rounded-circle" src="{{ asset('img')}}/12.svg" alt="">
                                             </div>
                                             <div class="ms-sm-3 d-flex">
                                                 <p class="small mb-2"><b>Bootstrap in the news:</b> The search giant’s parent company, Alphabet, just joined an exclusive club of tech stocks.</p>
@@ -341,26 +347,40 @@
                 <!-- Notification dropdown END -->
 
                 <li class="nav-item ms-2 dropdown">
-                    <a class="nav-link btn icon-md p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="avatar-img rounded-2" src="{{@asset('img')}}/07.jpg" alt="">
+                    <a class="nav-link btn icon-md p-0 nav-link bg-light icon-md btn btn-light p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+                        @if(auth()->user())
+                            <img class="avatar-img rounded-2" src="{{asset('img')}}/07.jpg" alt="">
+                        @else
+                            <i class="bi bi-person-circle"></i>
+                        @endif
                     </a>
                     <ul class="dropdown-menu dropdown-animation dropdown-menu-end pt-3 small me-md-n3" aria-labelledby="profileDropdown">
+
+                        @if(auth()->user())
                         <!-- Profile info -->
                         <li class="px-3">
                             <div class="d-flex align-items-center position-relative">
                                 <!-- Avatar -->
                                 <div class="avatar me-3">
-                                    <img class="avatar-img rounded-circle" src="{{@asset('img')}}/07.jpg" alt="avatar">
+                                    <img class="avatar-img rounded-circle" src="{{ asset('img')}}/07.jpg" alt="avatar">
                                 </div>
                                 <div>
-                                    <a class="h6 stretched-link" href="#">Lori Ferguson</a>
+                                    <a class="h6 stretched-link" href="{{route('profile')}}">{{auth()->user()->name}}</a>
                                     <p class="small m-0">Web Developer</p>
                                 </div>
                             </div>
-                            <a class="dropdown-item btn btn-primary-soft btn-sm my-2 text-center" href="{{@route('profile')}}">View profile</a>
+                            <a class="dropdown-item btn btn-primary-soft btn-sm my-2 text-center" href="{{route('profile')}}">View profile</a>
                         </li>
+                        @else
+                                <li class="px-3">
+                                    <div class="d-flex align-items-center position-relative">
+                                        <!-- Avatar -->
+                                    </div>
+                                </li>
+                        @endif
+
                         <!-- Links -->
-                        <li><a class="dropdown-item" href="{{@route('settings')}}"><i class="bi bi-gear fa-fw me-2"></i>Settings & Privacy</a></li>
+                        <li><a class="dropdown-item" href="{{ route('settings')}}"><i class="bi bi-gear fa-fw me-2"></i>Settings & Privacy</a></li>
                         <li>
                             <a class="dropdown-item" href="https://support.webestica.com/" target="_blank">
                                 <i class="fa-fw bi bi-life-preserver me-2"></i>Support
@@ -426,21 +446,24 @@ Header END -->
 JS libraries, plugins and custom scripts -->
 
 <!-- Bootstrap JS -->
-<script src="{{@asset('js')}}/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('js')}}/bootstrap.bundle.min.js"></script>
 
 <!-- Vendors -->
-<script src="{{@asset('js')}}/tiny-slider.js"></script>
-<script src="{{@asset('js')}}/OverlayScrollbars.min.js"></script>
-<script src="{{@asset('js')}}/choices.min.js"></script>
-<script src="{{@asset('js')}}/glightbox.min.js"></script>
-<script src="{{@asset('js')}}/flatpickr.min.js"></script>
-<script src="{{@asset('js')}}/plyr.js"></script>
-<script src="{{@asset('js')}}/dropzone.min.js"></script>
-<script src="{{@asset('js')}}/zuck.min.js"></script>
-<script src="{{@asset('js')}}/zuck-stories.js"></script><div id="zuck-modal" class="with-cube with-effects" tabindex="1" style="display: none;"><div id="zuck-modal-content"></div></div>
+<script src="{{ asset('js')}}/tiny-slider.js"></script>
+<script src="{{ asset('js')}}/OverlayScrollbars.min.js"></script>
+<script src="{{ asset('js')}}/choices.min.js"></script>
+<script src="{{ asset('js')}}/glightbox.min.js"></script>
+<script src="{{ asset('js')}}/flatpickr.min.js"></script>
+<script src="{{ asset('js')}}/plyr.js"></script>
+<script src="{{ asset('js')}}/dropzone.min.js"></script>
+<script src="{{ asset('js')}}/zuck.min.js"></script>
+<script src="{{ asset('js')}}/zuck-stories.js"></script>
+<div id="zuck-modal" class="with-cube with-effects" tabindex="1" style="display: none;">
+    <div id="zuck-modal-content"></div>
+</div>
 
 <!-- Theme Functions -->
-<script src="{{@asset('js')}}/functions.js"></script><input type="file" multiple="multiple" class="dz-hidden-input" tabindex="-1" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" tabindex="-1" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" tabindex="-1" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><div class="flatpickr-calendar animate" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><select class="flatpickr-monthDropdown-months" aria-label="Month" tabindex="-1"><option class="flatpickr-monthDropdown-month" value="0" tabindex="-1">January</option><option class="flatpickr-monthDropdown-month" value="1" tabindex="-1">February</option><option class="flatpickr-monthDropdown-month" value="2" tabindex="-1">March</option><option class="flatpickr-monthDropdown-month" value="3" tabindex="-1">April</option><option class="flatpickr-monthDropdown-month" value="4" tabindex="-1">May</option><option class="flatpickr-monthDropdown-month" value="5" tabindex="-1">June</option><option class="flatpickr-monthDropdown-month" value="6" tabindex="-1">July</option><option class="flatpickr-monthDropdown-month" value="7" tabindex="-1">August</option><option class="flatpickr-monthDropdown-month" value="8" tabindex="-1">September</option><option class="flatpickr-monthDropdown-month" value="9" tabindex="-1">October</option><option class="flatpickr-monthDropdown-month" value="10" tabindex="-1">November</option><option class="flatpickr-monthDropdown-month" value="11" tabindex="-1">December</option></select><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year"><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
+<script src="{{ asset('js')}}/functions.js"></script><input type="file" multiple="multiple" class="dz-hidden-input" tabindex="-1" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" tabindex="-1" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><input type="file" multiple="multiple" class="dz-hidden-input" tabindex="-1" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;"><div class="flatpickr-calendar animate" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><select class="flatpickr-monthDropdown-months" aria-label="Month" tabindex="-1"><option class="flatpickr-monthDropdown-month" value="0" tabindex="-1">January</option><option class="flatpickr-monthDropdown-month" value="1" tabindex="-1">February</option><option class="flatpickr-monthDropdown-month" value="2" tabindex="-1">March</option><option class="flatpickr-monthDropdown-month" value="3" tabindex="-1">April</option><option class="flatpickr-monthDropdown-month" value="4" tabindex="-1">May</option><option class="flatpickr-monthDropdown-month" value="5" tabindex="-1">June</option><option class="flatpickr-monthDropdown-month" value="6" tabindex="-1">July</option><option class="flatpickr-monthDropdown-month" value="7" tabindex="-1">August</option><option class="flatpickr-monthDropdown-month" value="8" tabindex="-1">September</option><option class="flatpickr-monthDropdown-month" value="9" tabindex="-1">October</option><option class="flatpickr-monthDropdown-month" value="10" tabindex="-1">November</option><option class="flatpickr-monthDropdown-month" value="11" tabindex="-1">December</option></select><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year"><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
       <span class="flatpickr-weekday">
         Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
       </span>

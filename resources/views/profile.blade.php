@@ -10,19 +10,19 @@
                 <!-- My profile START -->
                 <div class="card">
                     <!-- Cover image -->
-                    <div class="h-200px rounded-top" style="background-image:url({{@asset('img')}}/05.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+                    <div class="h-200px rounded-top" style="background-image:url({{ asset('img')}}/05.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
                     <!-- Card body START -->
                     <div class="card-body py-0">
                         <div class="d-sm-flex align-items-start text-center text-sm-start">
                             <div>
                                 <!-- Avatar -->
                                 <div class="avatar avatar-xxl mt-n5 mb-3">
-                                    <img class="avatar-img rounded-circle border border-white border-3" src="{{@asset('img')}}/07.jpg" alt="">
+                                    <img class="avatar-img rounded-circle border border-white border-3" src="{{ asset('img')}}/07.jpg" alt="">
                                 </div>
                             </div>
                             <div class="ms-sm-4 mt-sm-3">
                                 <!-- Info -->
-                                <h1 class="mb-0 h5">Sam Lanson <i class="bi bi-patch-check-fill text-success small"></i></h1>
+                                <h1 class="mb-0 h5">{{auth()->user()->name}} <i class="bi bi-patch-check-fill text-success small"></i></h1>
                                 <p>250 connections</p>
                             </div>
                             <!-- Button -->
@@ -72,7 +72,7 @@
                     <div class="d-flex mb-3">
                         <!-- Avatar -->
                         <div class="avatar avatar-xs me-2">
-                            <a href="#"> <img class="avatar-img rounded-circle" src="{{@asset('img')}}/07.jpg" alt=""> </a>
+                            <a href="#"> <img class="avatar-img rounded-circle" src="{{ asset('img')}}/07.jpg" alt=""> </a>
                         </div>
                         <!-- Post input -->
                         <form class="w-100">
@@ -118,12 +118,12 @@
                             <div class="d-flex align-items-center">
                                 <!-- Avatar -->
                                 <div class="avatar avatar-story me-2">
-                                    <a href="#!"> <img class="avatar-img rounded-circle" src="{{@asset('img')}}/04.jpg" alt=""> </a>
+                                    <a href="#!"> <img class="avatar-img rounded-circle" src="{{ asset('img')}}/04.jpg" alt=""> </a>
                                 </div>
                                 <!-- Info -->
                                 <div>
                                     <div class="nav nav-divider">
-                                        <h6 class="nav-item card-title mb-0"> <a href="#!"> Lori Ferguson </a></h6>
+                                        <h6 class="nav-item card-title mb-0"> <a href='#'>sraka</a></h6>
                                         <span class="nav-item small"> 2hr</span>
                                     </div>
                                     <p class="mb-0 small">Web Developer at Webestica</p>
@@ -152,7 +152,7 @@
                     <div class="card-body">
                         <p>I'm thrilled to share that I've completed a graduate certificate course in project management with the president's honor roll.</p>
                         <!-- Card img -->
-                        <img class="card-img" src="{{@asset('img')}}/01.jpg" alt="Post">
+                        <img class="card-img" src="{{ asset('img')}}/01.jpg" alt="Post">
                         <!-- Feed react START -->
                         <ul class="nav nav-stack py-3 small">
                             <li class="nav-item">
@@ -184,7 +184,7 @@
                         <div class="d-flex mb-3">
                             <!-- Avatar -->
                             <div class="avatar avatar-xs me-2">
-                                <a href="#!"> <img class="avatar-img rounded-circle" src="{{@asset('img')}}/12.jpg" alt=""> </a>
+                                <a href="#!"> <img class="avatar-img rounded-circle" src="{{ asset('img')}}/12.jpg" alt=""> </a>
                             </div>
                             <!-- Comment box  -->
                             <form class="position-relative w-100">
@@ -198,7 +198,7 @@
                                 <div class="d-flex position-relative">
                                     <!-- Avatar -->
                                     <div class="avatar avatar-xs">
-                                        <a href="#!"><img class="avatar-img rounded-circle" src="{{@asset('img')}}/05.jpg" alt=""></a>
+                                        <a href="#!"><img class="avatar-img rounded-circle" src="{{ asset('img')}}/05.jpg" alt=""></a>
                                     </div>
                                     <div class="ms-2">
                                         <!-- Comment by -->
@@ -230,7 +230,7 @@
                                         <div class="d-flex">
                                             <!-- Avatar -->
                                             <div class="avatar avatar-xs">
-                                                <a href="#!"><img class="avatar-img rounded-circle" src="{{@asset('img')}}/06.jpg" alt=""></a>
+                                                <a href="#!"><img class="avatar-img rounded-circle" src="{{ asset('img')}}/06.jpg" alt=""></a>
                                             </div>
                                             <!-- Comment by -->
                                             <div class="ms-2">
@@ -259,7 +259,7 @@
                                         <div class="d-flex">
                                             <!-- Avatar -->
                                             <div class="avatar avatar-story avatar-xs">
-                                                <a href="#!"><img class="avatar-img rounded-circle" src="{{@asset('img')}}/07.jpg" alt=""></a>
+                                                <a href="#!"><img class="avatar-img rounded-circle" src="{{ asset('img')}}/07.jpg" alt=""></a>
                                             </div>
                                             <!-- Comment by -->
                                             <div class="ms-2">
@@ -301,7 +301,7 @@
                                 <div class="d-flex">
                                     <!-- Avatar -->
                                     <div class="avatar avatar-xs">
-                                        <a href="#!"><img class="avatar-img rounded-circle" src="{{@asset('img')}}/05.jpg" alt=""></a>
+                                        <a href="#!"><img class="avatar-img rounded-circle" src="{{ asset('img')}}/05.jpg" alt=""></a>
                                     </div>
                                     <!-- Comment by -->
                                     <div class="ms-2">
@@ -352,7 +352,7 @@
                 <div class="card">
 
                     <div class="border-bottom">
-                        <p class="small mb-0 px-4 py-2"><i class="bi bi-heart-fill text-danger pe-1"></i>Sam Lanson likes this post</p>
+                        <p class="small mb-0 px-4 py-2"><i class="bi bi-heart-fill text-danger pe-1"></i>{{auth()->user()->name}} likes this post</p>
                     </div>
                     <!-- Card header START -->
                     <div class="card-header border-0 pb-0">
@@ -360,7 +360,7 @@
                             <div class="d-flex align-items-center">
                                 <!-- Avatar -->
                                 <div class="avatar me-2">
-                                    <a href="#"> <img class="avatar-img rounded-circle" src="{{@asset('img')}}/13.svg" alt=""> </a>
+                                    <a href="#"> <img class="avatar-img rounded-circle" src="{{ asset('img')}}/13.svg" alt=""> </a>
                                 </div>
                                 <!-- Title -->
                                 <div>
@@ -458,7 +458,7 @@
                                 <ul class="list-unstyled mt-3 mb-0">
                                     <li class="mb-2"> <i class="bi bi-calendar-date fa-fw pe-1"></i> Born: <strong> October 20, 1990 </strong> </li>
                                     <li class="mb-2"> <i class="bi bi-heart fa-fw pe-1"></i> Status: <strong> Single </strong> </li>
-                                    <li> <i class="bi bi-envelope fa-fw pe-1"></i> Email: <strong> webestica@gmail.com </strong> </li>
+                                    <li> <i class="bi bi-envelope fa-fw pe-1"></i> Email: <strong>{{auth()->user()->email}}</strong> </li>
                                 </ul>
                             </div>
                             <!-- Card body END -->
@@ -481,7 +481,7 @@
                                 <div class="d-flex">
                                     <!-- Avatar -->
                                     <div class="avatar me-3">
-                                        <a href="#!"> <img class="avatar-img rounded-circle" src="{{@asset('img')}}/08.svg" alt=""> </a>
+                                        <a href="#!"> <img class="avatar-img rounded-circle" src="{{ asset('img')}}/08.svg" alt=""> </a>
                                     </div>
                                     <!-- Info -->
                                     <div>
@@ -495,7 +495,7 @@
                                 <div class="d-flex">
                                     <!-- Avatar -->
                                     <div class="avatar me-3">
-                                        <a href="#!"> <img class="avatar-img rounded-circle" src="{{@asset('img')}}/09.svg" alt=""> </a>
+                                        <a href="#!"> <img class="avatar-img rounded-circle" src="{{ asset('img')}}/09.svg" alt=""> </a>
                                     </div>
                                     <!-- Info -->
                                     <div>
@@ -509,7 +509,7 @@
                                 <div class="d-flex">
                                     <!-- Avatar -->
                                     <div class="avatar me-3">
-                                        <a href="#!"> <img class="avatar-img rounded-circle" src="{{@asset('img')}}/10.svg" alt=""> </a>
+                                        <a href="#!"> <img class="avatar-img rounded-circle" src="{{ asset('img')}}/10.svg" alt=""> </a>
                                     </div>
                                     <!-- Info -->
                                     <div>
@@ -539,32 +539,32 @@
                                 <div class="row g-2">
                                     <!-- Photos item -->
                                     <div class="col-6">
-                                        <a href="{{@asset('img')}}/01.jpg" data-gallery="image-popup" data-glightbox="">
-                                            <img class="rounded img-fluid" src="{{@asset('img')}}/01.jpg" alt="">
+                                        <a href="{{ asset('img')}}/01.jpg" data-gallery="image-popup" data-glightbox="">
+                                            <img class="rounded img-fluid" src="{{ asset('img')}}/01.jpg" alt="">
                                         </a>
                                     </div>
                                     <!-- Photos item -->
                                     <div class="col-6">
-                                        <a href="{{@asset('img')}}/02.jpg" data-gallery="image-popup" data-glightbox="">
-                                            <img class="rounded img-fluid" src="{{@asset('img')}}/02.jpg" alt="">
+                                        <a href="{{ asset('img')}}/02.jpg" data-gallery="image-popup" data-glightbox="">
+                                            <img class="rounded img-fluid" src="{{ asset('img')}}/02.jpg" alt="">
                                         </a>
                                     </div>
                                     <!-- Photos item -->
                                     <div class="col-4">
-                                        <a href="{{@asset('img')}}/03.jpg" data-gallery="image-popup" data-glightbox="">
-                                            <img class="rounded img-fluid" src="{{@asset('img')}}/03.jpg" alt="">
+                                        <a href="{{ asset('img')}}/03.jpg" data-gallery="image-popup" data-glightbox="">
+                                            <img class="rounded img-fluid" src="{{ asset('img')}}/03.jpg" alt="">
                                         </a>
                                     </div>
                                     <!-- Photos item -->
                                     <div class="col-4">
-                                        <a href="{{@asset('img')}}/04.jpg" data-gallery="image-popup" data-glightbox="">
-                                            <img class="rounded img-fluid" src="{{@asset('img')}}/04.jpg" alt="">
+                                        <a href="{{ asset('img')}}/04.jpg" data-gallery="image-popup" data-glightbox="">
+                                            <img class="rounded img-fluid" src="{{ asset('img')}}/04.jpg" alt="">
                                         </a>
                                     </div>
                                     <!-- Photos item -->
                                     <div class="col-4">
-                                        <a href="{{@asset('img')}}/05.jpg" data-gallery="image-popup" data-glightbox="">
-                                            <img class="rounded img-fluid" src="{{@asset('img')}}/05.jpg" alt="">
+                                        <a href="{{ asset('img')}}/05.jpg" data-gallery="image-popup" data-glightbox="">
+                                            <img class="rounded img-fluid" src="{{ asset('img')}}/05.jpg" alt="">
                                         </a>
                                         <!-- glightbox Albums left bar END  -->
                                     </div>
@@ -594,7 +594,7 @@
                                             <!-- Card body -->
                                             <div class="card-body p-2 pb-0">
                                                 <div class="avatar avatar-story avatar-xl">
-                                                    <a href="#!"><img class="avatar-img rounded-circle" src="{{@asset('img')}}/02.jpg" alt=""></a>
+                                                    <a href="#!"><img class="avatar-img rounded-circle" src="{{ asset('img')}}/02.jpg" alt=""></a>
                                                 </div>
                                                 <h6 class="card-title mb-1 mt-3"> <a href="#!"> Amanda Reed </a></h6>
                                                 <p class="mb-0 small lh-sm">16 mutual connections</p>
@@ -614,7 +614,7 @@
                                             <!-- Card body -->
                                             <div class="card-body p-2 pb-0">
                                                 <div class="avatar avatar-xl">
-                                                    <a href="#!"><img class="avatar-img rounded-circle" src="{{@asset('img')}}/03.jpg" alt=""></a>
+                                                    <a href="#!"><img class="avatar-img rounded-circle" src="{{ asset('img')}}/03.jpg" alt=""></a>
                                                 </div>
                                                 <h6 class="card-title mb-1 mt-3"> <a href="#!"> Samuel Bishop </a></h6>
                                                 <p class="mb-0 small lh-sm">22 mutual connections</p>
@@ -634,7 +634,7 @@
                                             <!-- Card body -->
                                             <div class="card-body p-2 pb-0">
                                                 <div class="avatar avatar-xl">
-                                                    <a href="#!"><img class="avatar-img rounded-circle" src="{{@asset('img')}}/04.jpg" alt=""></a>
+                                                    <a href="#!"><img class="avatar-img rounded-circle" src="{{ asset('img')}}/04.jpg" alt=""></a>
                                                 </div>
                                                 <h6 class="card-title mb-1 mt-3"> <a href="#"> Bryan Knight </a></h6>
                                                 <p class="mb-0 small lh-sm">1 mutual connection</p>
@@ -654,7 +654,7 @@
                                             <!-- Card body -->
                                             <div class="card-body p-2 pb-0">
                                                 <div class="avatar avatar-xl">
-                                                    <a href=""><img class="avatar-img rounded-circle" src="{{@asset('img')}}/05.jpg" alt=""></a>
+                                                    <a href=""><img class="avatar-img rounded-circle" src="{{ asset('img')}}/05.jpg" alt=""></a>
                                                 </div>
                                                 <h6 class="card-title mb-1 mt-3"> <a href="#!"> Amanda Reed </a></h6>
                                                 <p class="mb-0 small lh-sm">15 mutual connections</p>

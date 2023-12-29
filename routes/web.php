@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -25,3 +25,7 @@ Route::get('/profile', [\App\Http\Controllers\HomeController::class, 'profile'])
 
 Route::get('/sign_in', [\App\Http\Controllers\HomeController::class, 'sign_in'])->name('sign_in');
 Route::get('/sign_up', [\App\Http\Controllers\HomeController::class, 'sign_up'])->name('sign_up');
+
+Route::post('/register', [\App\Http\Controllers\HomeController::class, 'register'])->name('register');
+Route::post('/login', [\App\Http\Controllers\HomeController::class, 'login'])->name('login');
+Route::post('/logout', [\App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
