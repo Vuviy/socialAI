@@ -1,3 +1,5 @@
+
+
 <div class="card">
     <!-- Card header START -->
     <div class="card-header border-0 pb-0">
@@ -5,12 +7,13 @@
             <div class="d-flex align-items-center">
                 <!-- Avatar -->
                 <div class="avatar me-2">
-                    <a href="#"> <img class="avatar-img rounded-circle" src="{{@asset('img')}}/13.svg" alt=""> </a>
+                    <a href="#"> <img class="avatar-img rounded-circle" src="{{asset('storage/'. $post->user->profile->photo)}}" alt=""> </a>
                 </div>
                 <!-- Title -->
                 <div>
-                    <h6 class="card-title mb-0"> <a href="#!"> Apple Education </a></h6>
-                    <p class="mb-0 small">9 November at 23:29</p>
+                    <h6 class="card-title mb-0"> <a href="{{route('show.user', ['name' => $post->user->name])}}">{{$post->user->name}} </a></h6>
+{{--                    <p class="mb-0 small">{{date('F j, Y', strtotime($post->created_at))}}</p>--}}
+                    <p class="mb-0 small">{{\Carbon\Carbon::createFromTimeStamp(strtotime($post->created_at))->diffForHumans()}}</p>
                 </div>
             </div>
             <!-- Card share action menu -->
@@ -33,11 +36,11 @@
 
     <!-- Card body START -->
     <div class="card-body pb-0">
-        <p>Find out how you can save time in the classroom this year. Earn recognition while you learn new skills on iPad and Mac. Start  recognition your first Apple Teacher badge today!</p>
+        <p>{{$post->content}}</p>
         <!-- Feed react START -->
         <ul class="nav nav-stack pb-2 small">
             <li class="nav-item">
-                <a class="nav-link active text-secondary" href="#!"> <i class="bi bi-heart-fill me-1 icon-xs bg-danger text-white rounded-circle"></i> Louis, Billy and 126 others </a>
+                <a class="nav-link active text-secondary" href="#!"> <i class="bi bi-heart-fill me-1 icon-xs bg-danger text-white rounded-circle"></i> {{$post->likes}} </a>
             </li>
             <li class="nav-item ms-sm-auto">
                 <a class="nav-link" href="#!"> <i class="bi bi-chat-fill pe-1"></i>Comments (12)</a>
@@ -51,7 +54,7 @@
         <!-- Feed react START -->
         <ul class="nav nav-fill nav-stack small">
             <li class="nav-item">
-                <a class="nav-link mb-0 active" href="#!"> <i class="bi bi-heart pe-1"></i>Liked (56)</a>
+                <a class="nav-link mb-0 active" href="#!"> <i class="bi bi-heart pe-1"></i>Liked ({{$post->likes}})</a>
             </li>
             <!-- Card share action dropdown START -->
             <li class="nav-item dropdown">

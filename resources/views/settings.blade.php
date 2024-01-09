@@ -113,35 +113,45 @@
                             <h1 class="h5 card-title">Account Settings</h1>
                             <p class="mb-0">He moonlights difficult engrossed it, sportsmen. Interested has all Devonshire difficulty gay assistance joy. Unaffected at ye of compliment alteration to.</p>
                         </div>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                    @endif
                         <!-- Card header START -->
                         <!-- Card body START -->
                         <div class="card-body">
                             <!-- Form settings START -->
-                            <form class="row g-3">
+                            <form class="row g-3" action="{{route('edit_profile')}}" method="post" enctype="multipart/form-data">
+                                @csrf
                                 <!-- First name -->
                                 <div class="col-sm-6 col-lg-4">
                                     <label class="form-label">First name</label>
-                                    <input type="text" class="form-control" placeholder="" value="Sam">
+                                    <input type="text" name="first_name" class="form-control" placeholder="" value="{{$user->profile->first_name}}">
                                 </div>
                                 <!-- Last name -->
                                 <div class="col-sm-6 col-lg-4">
                                     <label class="form-label">Last name</label>
-                                    <input type="text" class="form-control" placeholder="" value="Lanson">
+                                    <input type="text" name="last_name" class="form-control" placeholder="" value="{{$user->profile->last_name}}">
                                 </div>
                                 <!-- Additional name -->
                                 <div class="col-sm-6 col-lg-4">
                                     <label class="form-label">Additional name</label>
-                                    <input type="text" class="form-control" placeholder="">
+                                    <input type="text" name="additional_name" class="form-control" value="{{$user->profile->additional_name}}">
                                 </div>
                                 <!-- User name -->
                                 <div class="col-sm-6">
                                     <label class="form-label">User name</label>
-                                    <input type="text" class="form-control" placeholder="" value="@samlanson">
+                                    <input type="text" name="name" class="form-control" placeholder="" value="{{$user->name}}">
                                 </div>
                                 <!-- Birthday -->
                                 <div class="col-lg-6">
                                     <label class="form-label">Birthday </label>
-                                    <input type="text" class="form-control flatpickr flatpickr-input" value="12/12/1990" readonly="readonly">
+                                    <input type="text" name="birthday" class="form-control flatpickr flatpickr-input" value="{{$user->profile->birthday}}">
                                 </div>
                                 <!-- Allow checkbox -->
                                 <div class="col-12">
@@ -155,23 +165,36 @@
                                 <!-- Phone number -->
                                 <div class="col-sm-6">
                                     <label class="form-label">Phone number</label>
-                                    <input type="text" class="form-control" placeholder="" value="(678) 324-1251">
+                                    <input type="number" name="phone_number" class="form-control" placeholder="" value="{{$user->profile->phone_number}}">
                                     <!-- Add new number -->
                                     <a class="btn btn-sm btn-dashed rounded mt-2" href="#!"> <i class="bi bi-plus-circle-dotted me-1"></i>Add new phone number</a>
                                 </div>
                                 <!-- Phone number -->
                                 <div class="col-sm-6">
                                     <label class="form-label">Email</label>
-                                    <input type="text" class="form-control" placeholder="" value="sam@webestica.com">
+                                    <input type="text" name="email" class="form-control" placeholder="" value="{{$user->email}}">
                                     <!-- Add new email -->
                                     <a class="btn btn-sm btn-dashed rounded mt-2" href="#!"> <i class="bi bi-plus-circle-dotted me-1"></i>Add new email address</a>
                                 </div>
                                 <!-- Page information -->
                                 <div class="col-12">
                                     <label class="form-label">Overview</label>
-                                    <textarea class="form-control" rows="4" placeholder="Description (Required)">Interested has all Devonshire difficulty gay assistance joy. Handsome met debating sir dwelling age material. As style lived he worse dried. Offered related so visitors we private removed. Moderate do subjects to distance.</textarea>
+                                    <textarea class="form-control" name="overview" rows="4" placeholder="Description (Required)">{{$user->profile->overview}}</textarea>
                                     <small>Character limit: 300</small>
                                 </div>
+                                <!-- Photo -->
+                                <div class="col-12">
+                                    <label class="form-label">Photo</label>
+                                    <input type="file" name="photo" class="form-control">
+                                </div>
+
+                                @if($user->profile->photo)
+                                    <div class="col-12">
+                                        <img style="width: 100px; height: 100px" src="{{asset('storage/'. $user->profile->photo)}}" alt="">
+                                    </div>
+                                @endif
+
+
                                 <!-- Button  -->
                                 <div class="col-12 text-end">
                                     <button type="submit" class="btn btn-sm btn-primary mb-0">Save changes</button>

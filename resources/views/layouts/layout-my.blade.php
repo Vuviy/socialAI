@@ -139,7 +139,9 @@
                 <ul class="navbar-nav navbar-nav-scroll ms-auto">
                     <!-- Nav item 1 Demos -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link active dropdown-toggle" href="#" id="homeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demo</a>
+                        <a class="nav-link active dropdown-toggle" href="#" id="homeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demo
+{{--                            <i class="bi bi-caret-down-fill"></i>--}}
+                        </a>
                         <ul class="dropdown-menu" aria-labelledby="homeMenu">
                             <li> <a class="dropdown-item active" href="{{ route('home')}}">Home default</a></li>
                             <li> <a class="dropdown-item" href="index-classic.html">Home classic</a></li>
@@ -223,8 +225,9 @@
                             <li class="dropdown-submenu dropstart">
                                 <a class="dropdown-item dropdown-toggle" href="#">Authentication</a>
                                 <ul class="dropdown-menu dropdown-menu-end" data-bs-popper="none">
-                                    <li> <a class="dropdown-item" href="{{ route('sign_in')}}">Sign in</a> </li>
+                                    @if(!auth()->user())<li> <a class="dropdown-item" href="{{ route('sign_in')}}">Sign in</a> </li>
                                     <li> <a class="dropdown-item" href="{{ route('sign_up')}}">Sing up</a> </li>
+                                    @endif
                                     @if(auth()->user())
                                     <li> <form action="{{ route('logout')}}" method="post" class="dropdown-item">
                                             @csrf
@@ -281,8 +284,9 @@
                                     <li>
                                         <div class="list-group-item list-group-item-action rounded badge-unread d-flex border-0 mb-1 p-3">
                                             <div class="avatar text-center d-none d-sm-inline-block">
-                                                <img class="avatar-img rounded-circle" src="{{ asset('img')}}/01.jpg" alt="">
+                                                <img class="avatar-img rounded-circle" src="{{ asset('img/01.jpg')}}" alt="">
                                             </div>
+                                            hfdgdf
                                             <div class="ms-sm-3">
                                                 <div class=" d-flex">
                                                     <p class="small mb-2"><b>Judy Nguyen</b> sent you a friend request.</p>
@@ -349,20 +353,19 @@
                 <li class="nav-item ms-2 dropdown">
                     <a class="nav-link btn icon-md p-0 nav-link bg-light icon-md btn btn-light p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                         @if(auth()->user())
-                            <img class="avatar-img rounded-2" src="{{asset('img')}}/07.jpg" alt="">
+                            <img class="avatar-img rounded-2" src="{{ asset('storage/'. auth()->user()->profile->photo)}}" alt="">
                         @else
                             <i class="bi bi-person-circle"></i>
                         @endif
                     </a>
                     <ul class="dropdown-menu dropdown-animation dropdown-menu-end pt-3 small me-md-n3" aria-labelledby="profileDropdown">
-
                         @if(auth()->user())
                         <!-- Profile info -->
                         <li class="px-3">
                             <div class="d-flex align-items-center position-relative">
                                 <!-- Avatar -->
                                 <div class="avatar me-3">
-                                    <img class="avatar-img rounded-circle" src="{{ asset('img')}}/07.jpg" alt="avatar">
+                                    <img class="avatar-img rounded-circle" src="{{ asset('storage/'. auth()->user()->profile->photo)}}" alt="avatar">
                                 </div>
                                 <div>
                                     <a class="h6 stretched-link" href="{{route('profile')}}">{{auth()->user()->name}}</a>
@@ -442,6 +445,11 @@ Header END -->
 </main>
 <!-- **************** MAIN CONTENT END **************** -->
 
+
+{{--******* Modal START *********--}}
+
+@include('components.modal.post-create')
+{{--******* Modal END *********--}}
 <!-- =======================
 JS libraries, plugins and custom scripts -->
 

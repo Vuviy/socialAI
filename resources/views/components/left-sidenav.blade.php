@@ -36,7 +36,7 @@
                             <div class="text-center">
                                 <!-- Avatar -->
                                 <div class="avatar avatar-lg mt-n5 mb-3">
-                                    <a href="{{route('profile')}}"><img class="avatar-img rounded border border-white border-3" src="{{asset('img')}}/07.jpg" alt=""></a>
+                                    <a href="{{route('profile')}}"><img class="avatar-img rounded border border-white border-3" src="{{asset('storage/'. auth()->user()->profile->photo)}}" alt=""></a>
                                 </div>
                                 <!-- Info -->
                                 <h5 class="mb-0"> <a href="{{route('profile')}}">{{auth()->user()->name}}</a> </h5>

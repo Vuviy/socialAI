@@ -19,13 +19,33 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/settings', [\App\Http\Controllers\HomeController::class, 'settings'])->name('settings');
-Route::get('/messaging', [\App\Http\Controllers\HomeController::class, 'messaging'])->name('messaging');
-Route::get('/profile', [\App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+Route::group(['middleware' => 'auth'], function (){
+    Route::get('/settings', [\App\Http\Controllers\HomeController::class, 'settings'])->name('settings');
+    Route::get('/messaging', [\App\Http\Controllers\HomeController::class, 'messaging'])->name('messaging');
+    Route::get('/profile', [\App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+});
 
-Route::get('/sign_in', [\App\Http\Controllers\HomeController::class, 'sign_in'])->name('sign_in');
-Route::get('/sign_up', [\App\Http\Controllers\HomeController::class, 'sign_up'])->name('sign_up');
 
-Route::post('/register', [\App\Http\Controllers\HomeController::class, 'register'])->name('register');
-Route::post('/login', [\App\Http\Controllers\HomeController::class, 'login'])->name('login');
-Route::post('/logout', [\App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
+Route::group([], function (){
+    Route::get('/login', [\App\Http\Controllers\UserController::class, 'sign_in'])->name('sign_in');
+    Route::get('/register', [\App\Http\Controllers\UserController::class, 'sign_up'])->name('sign_up');
+
+    Route::post('/register', [\App\Http\Controllers\UserController::class, 'register'])->name('register');
+    Route::post('/login', [\App\Http\Controllers\UserController::class, 'login'])->name('login');
+    Route::post('/logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
+
+    Route::post('/edit_profile', [\App\Http\Controllers\UserController::class, 'edit_profile'])->name('edit_profile');
+});
+
+Route::group([], function (){
+    Route::post('/post-create', [\App\Http\Controllers\PostController::class, 'create'])->name('post.create');
+//    Route::get('/sign_up', [\App\Http\Controllers\UserController::class, 'sign_up'])->name('sign_up');
+//
+//    Route::post('/register', [\App\Http\Controllers\UserController::class, 'register'])->name('register');
+//    Route::post('/login', [\App\Http\Controllers\UserController::class, 'login'])->name('login');
+//    Route::post('/logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
+//
+//    Route::post('/edit_profile', [\App\Http\Controllers\UserController::class, 'edit_profile'])->name('edit_profile');
+});
+
+Route::get('/user/{name}', [\App\Http\Controllers\HomeController::class, 'showUser'])->middleware('profile')->name('show.user');

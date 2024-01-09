@@ -14810,19 +14810,19 @@ textarea.form-control-lg {
   color: var(--bs-primary);
 }
 
-.dropdown-toggle:after {
-  content: "\f078";
-  font-family: "Font Awesome 6 Free";
-  font-size: 0.5rem;
-  margin-left: 0.35rem;
-  font-weight: 900;
-  vertical-align: middle;
-  border: none;
-}
+/*.dropdown-toggle:after {*/
+/*  content: "\f078";*/
+/*  font-family: "Font Awesome 4 Free 1";*/
+/*  font-size: 0.5rem;*/
+/*  margin-left: 0.35rem;*/
+/*  font-weight: 900;*/
+/*  vertical-align: middle;*/
+/*  border: none;*/
+/*}*/
 
 .dropup .dropdown-toggle:after {
   content: "\f077";
-  font-family: "Font Awesome 6 Free";
+  font-family: "Font Awesome 4 Free 2";
   font-size: 0.7rem;
   margin-left: 0.35rem;
   font-weight: 900;
@@ -15229,7 +15229,7 @@ header {
 }
 .navbar .dropdown-menu .dropdown-submenu.dropend .dropdown-toggle:after {
   content: "\f00d";
-  font-family: "Font Awesome 6 Free";
+  font-family: "Font Awesome 4 Free 3";
   font-size: 10px;
   top: 10px;
   -webkit-transform: rotate(45deg);
@@ -15253,7 +15253,7 @@ header {
 
 .navbar .dropdown-menu .dropdown-submenu.dropstart .dropdown-toggle:before {
   content: "\f00d";
-  font-family: "Font Awesome 6 Free";
+  font-family: "Font Awesome 4 Free 4";
   font-size: 10px;
   top: 8px;
   -webkit-transform: rotate(45deg);
@@ -16784,7 +16784,7 @@ a.badge:hover {
 }
 .avatar-uploader .avatar-edit input + label:after {
   content: "\f303";
-  font-family: "Font Awesome 6 Free";
+  font-family: "Font Awesome 4 Free 5";
   color: #14191e;
   position: absolute;
   top: 50%;

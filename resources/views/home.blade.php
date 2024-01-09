@@ -1,7 +1,6 @@
 
 @extends('layouts.layout-my')
 
-
 @section('content')
 <!-- Container START -->
 <div class="container">
@@ -15,11 +14,13 @@
         <div class="col-md-8 col-lg-6 vstack gap-4">
 
             <!-- Story START -->
-           @include('components.stories')
+{{--           @include('components.stories')--}}
             <!-- Story END -->
 
             <!-- Share feed START -->
-            @include('components.share')
+{{--            <div style="max-height: auto">--}}
+{{--                @include('components.share')--}}
+{{--            </div>--}}
             <!-- Share feed END -->
 
             <!-- Card feed item START  post 1-->
@@ -35,7 +36,9 @@
             <!-- Card feed item END -->
 
             <!-- Card feed item START post text -->
-            @include('components.card_items.post-text')
+            @foreach($posts as $post)
+                @include('components.card_items.post-text', ['post' => $post])
+            @endforeach
             <!-- Card feed item END -->
 
             <!-- Card feed item START People you may know -->
