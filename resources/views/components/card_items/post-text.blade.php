@@ -1,5 +1,4 @@
 
-
 <div class="card">
     <!-- Card header START -->
     <div class="card-header border-0 pb-0">
@@ -12,7 +11,7 @@
                 <!-- Title -->
                 <div>
                     <h6 class="card-title mb-0"> <a href="{{route('show.user', ['name' => $post->user->name])}}">{{$post->user->name}} </a></h6>
-{{--                    <p class="mb-0 small">{{date('F j, Y', strtotime($post->created_at))}}</p>--}}
+                    <p class="mb-0 small">{{date('F j, Y', strtotime($post->created_at))}}</p>
                     <p class="mb-0 small">{{\Carbon\Carbon::createFromTimeStamp(strtotime($post->created_at))->diffForHumans()}}</p>
                 </div>
             </div>

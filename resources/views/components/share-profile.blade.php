@@ -2,7 +2,7 @@
     <div class="d-flex mb-3">
         <!-- Avatar -->
         <div class="avatar avatar-xs me-2">
-            <a href="#"> <img class="avatar-img rounded-circle" src="assets/images/avatar/07.jpg" alt=""> </a>
+            <a href="#"> <img class="avatar-img rounded-circle" src="{{asset('storage/'.$user->profile->photo)}}" alt=""> </a>
         </div>
         <!-- Post input -->
         <form class="w-100">

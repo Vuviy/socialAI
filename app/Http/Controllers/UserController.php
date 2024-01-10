@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileEditRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -83,12 +84,43 @@ class UserController extends Controller
 
         $user->profile()->update($data);
 
-
         return redirect()->back();
+    }
+
+    public function follow(Request $request)
+    {
 
 
 
 
+        $user = \auth()->user();
+
+//        dd($user->subscriptions());
+
+
+//        $ooo = new HasMany();
+
+
+        $data = ['success' => true];
+
+        $subs = $user->subscriptions->pluck('follow_id')->toArray();
+
+//        foreach ($user->subscriptions as $sub){
+            if(in_array($request->follow_id, $subs)){
+                $user->subscriptions()->where('follow_id', $request->follow_id)->delete();
+                $data['action'] = 'unfollow';
+                return response()->json($data, 200);
+
+            }
+//        }
+
+
+        $follow = $user->subscriptions()->create($request->all());
+
+        if($follow){
+            return response()->json($data, 201);
+        }
+        return response()->json(['success' => false], 400);
 
     }
 }

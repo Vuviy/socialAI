@@ -49,3 +49,6 @@ Route::group([], function (){
 });
 
 Route::get('/user/{name}', [\App\Http\Controllers\HomeController::class, 'showUser'])->middleware('profile')->name('show.user');
+
+
+Route::post('/follow', [\App\Http\Controllers\UserController::class, 'follow'])->name('follow');

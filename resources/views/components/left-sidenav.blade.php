@@ -72,29 +72,29 @@
                             <hr>
 
                             <!-- Side Nav START -->
-                            <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{route('profile')}}"> <img class="me-2 h-20px fa-fw" src="{{asset('img')}}/home-outline-filled.svg" alt=""><span>Feed </span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="my-profile-connections.html"> <img class="me-2 h-20px fa-fw" src="{{ asset('img')}}/person-outline-filled.svg" alt=""><span>Connections </span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="blog.html"> <img class="me-2 h-20px fa-fw" src="{{ asset('img')}}/earth-outline-filled.svg" alt=""><span>Latest News </span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="events.html"> <img class="me-2 h-20px fa-fw" src="{{ asset('img')}}/calendar-outline-filled.svg" alt=""><span>Events </span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="groups.html"> <img class="me-2 h-20px fa-fw" src="{{ asset('img')}}/chat-outline-filled.svg" alt=""><span>Groups </span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="notifications.html"> <img class="me-2 h-20px fa-fw" src="{{ asset('img')}}/notification-outlined-filled.svg" alt=""><span>Notifications </span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('settings')}}"> <img class="me-2 h-20px fa-fw" src="{{ asset('img')}}/cog-outline-filled.svg" alt=""><span>Settings </span></a>
-                                </li>
-                            </ul>
+{{--                            <ul class="nav nav-link-secondary flex-column fw-bold gap-2">--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="{{route('profile')}}"> <img class="me-2 h-20px fa-fw" src="{{asset('img')}}/home-outline-filled.svg" alt=""><span>Feed </span></a>--}}
+{{--                                </li>--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="my-profile-connections.html"> <img class="me-2 h-20px fa-fw" src="{{ asset('img')}}/person-outline-filled.svg" alt=""><span>Connections </span></a>--}}
+{{--                                </li>--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="blog.html"> <img class="me-2 h-20px fa-fw" src="{{ asset('img')}}/earth-outline-filled.svg" alt=""><span>Latest News </span></a>--}}
+{{--                                </li>--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="events.html"> <img class="me-2 h-20px fa-fw" src="{{ asset('img')}}/calendar-outline-filled.svg" alt=""><span>Events </span></a>--}}
+{{--                                </li>--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="groups.html"> <img class="me-2 h-20px fa-fw" src="{{ asset('img')}}/chat-outline-filled.svg" alt=""><span>Groups </span></a>--}}
+{{--                                </li>--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="notifications.html"> <img class="me-2 h-20px fa-fw" src="{{ asset('img')}}/notification-outlined-filled.svg" alt=""><span>Notifications </span></a>--}}
+{{--                                </li>--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="{{ route('settings')}}"> <img class="me-2 h-20px fa-fw" src="{{ asset('img')}}/cog-outline-filled.svg" alt=""><span>Settings </span></a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
                             <!-- Side Nav END -->
                         </div>
                         <!-- Card body END -->

@@ -2,6 +2,9 @@
 @extends('layouts.layout-my')
 
 @section('content')
+
+{{--    @dd($user->subscriptions()->first()->profile->photo)--}}
+
     <div class="container">
         <div class="row g-4">
 
@@ -22,7 +25,7 @@
                             </div>
                             <div class="ms-sm-4 mt-sm-3">
                                 <!-- Info -->
-                                <h1 class="mb-0 h5">{{auth()->user()->name}} <i class="bi bi-patch-check-fill text-success small"></i></h1>
+                                <h1 class="mb-0 h5">{{$user->name}} <i class="bi bi-patch-check-fill text-success small"></i></h1>
                                 <p>250 connections</p>
                             </div>
                             <!-- Button -->
@@ -144,9 +147,12 @@
 {{--                    @include('components.profile.photos')--}}
                     <!-- Card END -->
 
-                    <!-- Card START -->
-{{--                    @include('components.profile.friends')--}}
 
+
+                    <!-- Card START -->
+                    @if($user->subscriptions())
+                        @include('components.profile.subscriptions', ['user' => $user])
+                    @endif
                 <!-- Card END -->
                 </div>
 

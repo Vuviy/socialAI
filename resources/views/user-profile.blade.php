@@ -2,6 +2,9 @@
 @extends('layouts.layout-my')
 
 @section('content')
+
+{{--    @dd($user->followers->pluck('user_id')->toArray())--}}
+
     <div class="container">
         <div class="row g-4">
 
@@ -27,7 +30,22 @@
                             </div>
                             <!-- Button -->
                             <div class="d-flex mt-3 justify-content-center ms-sm-auto">
-                                <button class="btn btn-danger-soft me-2" type="button"> <i class="bi bi-pencil-fill pe-1"></i> Edit profile </button>
+{{--                                <button class="btn btn-danger-soft me-2" type="button"> <i class="bi bi-pencil-fill pe-1"></i> Edit profile </button>--}}
+
+
+{{--                                @if($user->followers)--}}
+
+{{--                                @endif--}}
+                                <button class="btn btn-danger-soft me-2 follow" type="button">
+                                    @if(in_array(auth()->user()->id, $user->followers()->pluck('id')->toArray()))
+                                        Unfollow
+                                    @else
+                                        <i class="bi bi-patch-check"></i> Follow
+                                    @endif
+                                </button>
+{{--                                <button class="btn btn-danger-soft me-2 follow" type="button"> <i class="bi bi-patch-check"></i> Follow </button>--}}
+
+                                <a href="{{route('messaging')}}" class="btn btn-danger-soft me-2"> <i class="bi bi-chat-left"></i> Message </a>
                                 <div class="dropdown">
                                     <!-- Card share action menu -->
                                     <button class="icon-md btn btn-light" type="button" id="profileAction2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -72,46 +90,48 @@
                 <!-- Share feed END -->
 
 
-                <div class="card card-body">
-                    <div class="d-flex mb-3">
-                        <!-- Avatar -->
-                        <div class="avatar avatar-xs me-2">
-                            <a href="#"> <img class="avatar-img rounded-circle" src="{{ asset('storage/'. $user->profile->photo)}}" alt=""> </a>
-                        </div>
-                        <!-- Post input -->
-                        <form class="w-100">
-                            <input class="form-control pe-4 border-0" placeholder="Share your thoughts..." data-bs-toggle="modal" data-bs-target="#modalCreateFeed">
-                        </form>
-                    </div>
-                    <!-- Share feed toolbar START -->
-                    <ul class="nav nav-pills nav-stack small fw-normal">
-                        <li class="nav-item">
-                            <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionPhoto"> <i class="bi bi-image-fill text-success pe-2"></i>Photo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionVideo"> <i class="bi bi-camera-reels-fill text-info pe-2"></i>Video</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link bg-light py-1 px-2 mb-0" data-bs-toggle="modal" data-bs-target="#modalCreateEvents"> <i class="bi bi-calendar2-event-fill text-danger pe-2"></i>Event </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#modalCreateFeed"> <i class="bi bi-emoji-smile-fill text-warning pe-2"></i>Feeling /Activity</a>
-                        </li>
-                        <li class="nav-item dropdown ms-sm-auto">
-                            <a class="nav-link bg-light py-1 px-2 mb-0" href="#" id="feedActionShare" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-three-dots"></i>
-                            </a>
-                            <!-- Dropdown menu -->
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="feedActionShare">
-                                <li><a class="dropdown-item" href="#"> <i class="bi bi-envelope fa-fw pe-2"></i>Create a poll</a></li>
-                                <li><a class="dropdown-item" href="#"> <i class="bi bi-bookmark-check fa-fw pe-2"></i>Ask a question </a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#"> <i class="bi bi-pencil-square fa-fw pe-2"></i>Help</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <!-- Share feed toolbar END -->
-                </div>
+{{--                <div class="card card-body">--}}
+{{--                    <div class="d-flex mb-3">--}}
+{{--                        <!-- Avatar -->--}}
+{{--                        <div class="avatar avatar-xs me-2">--}}
+{{--                            <a href="#"> <img class="avatar-img rounded-circle" src="{{ asset('storage/'. $user->profile->photo)}}" alt=""> </a>--}}
+{{--                        </div>--}}
+{{--                        <!-- Post input -->--}}
+{{--                        <form class="w-100">--}}
+{{--                            <input class="form-control pe-4 border-0" placeholder="Share your thoughts..." data-bs-toggle="modal" data-bs-target="#modalCreateFeed">--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
+{{--                    <!-- Share feed toolbar START -->--}}
+{{--                    <ul class="nav nav-pills nav-stack small fw-normal">--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionPhoto"> <i class="bi bi-image-fill text-success pe-2"></i>Photo</a>--}}
+{{--                        </li>--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#feedActionVideo"> <i class="bi bi-camera-reels-fill text-info pe-2"></i>Video</a>--}}
+{{--                        </li>--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="#" class="nav-link bg-light py-1 px-2 mb-0" data-bs-toggle="modal" data-bs-target="#modalCreateEvents"> <i class="bi bi-calendar2-event-fill text-danger pe-2"></i>Event </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link bg-light py-1 px-2 mb-0" href="#!" data-bs-toggle="modal" data-bs-target="#modalCreateFeed"> <i class="bi bi-emoji-smile-fill text-warning pe-2"></i>Feeling /Activity</a>--}}
+{{--                        </li>--}}
+{{--                        <li class="nav-item dropdown ms-sm-auto">--}}
+{{--                            <a class="nav-link bg-light py-1 px-2 mb-0" href="#" id="feedActionShare" data-bs-toggle="dropdown" aria-expanded="false">--}}
+{{--                                <i class="bi bi-three-dots"></i>--}}
+{{--                            </a>--}}
+{{--                            <!-- Dropdown menu -->--}}
+{{--                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="feedActionShare">--}}
+{{--                                <li><a class="dropdown-item" href="#"> <i class="bi bi-envelope fa-fw pe-2"></i>Create a poll</a></li>--}}
+{{--                                <li><a class="dropdown-item" href="#"> <i class="bi bi-bookmark-check fa-fw pe-2"></i>Ask a question </a></li>--}}
+{{--                                <li><hr class="dropdown-divider"></li>--}}
+{{--                                <li><a class="dropdown-item" href="#"> <i class="bi bi-pencil-square fa-fw pe-2"></i>Help</a></li>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                    --}}
+{{--                    <!-- Share feed toolbar END -->--}}
+{{--                </div>--}}
+{{--                    @include('components.share-profile', ['user' => $user])--}}
 
                 <!-- Share feed END -->
 
@@ -156,3 +176,6 @@
         </div> <!-- Row END -->
     </div>
 @endsection
+
+@include('js.scripts')
+

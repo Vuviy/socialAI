@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Models\Chat;
 use App\Models\Post;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,6 +14,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+
 
         $posts = Post::query()->latest()->get();
         return view('home', compact('posts'));
@@ -25,7 +28,21 @@ class HomeController extends Controller
     }
 
     public function messaging(){
-        return view('messaging');
+
+
+//        $chat = Chat::query()->first();
+
+
+
+
+
+        $user =  \auth()->user();
+
+//        dd($chat->oponent);
+
+
+
+        return view('messaging', compact('user'));
     }
 
     public function profile(){
