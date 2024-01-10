@@ -52,3 +52,5 @@ Route::get('/user/{name}', [\App\Http\Controllers\HomeController::class, 'showUs
 
 
 Route::post('/follow', [\App\Http\Controllers\UserController::class, 'follow'])->name('follow');
+
+//
