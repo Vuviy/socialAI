@@ -27,6 +27,9 @@ class UserController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
+        $user->profile()->create([]);
+
+
         Auth::login($user);
         return redirect()->route('home');
     }

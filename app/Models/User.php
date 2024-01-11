@@ -51,7 +51,7 @@ class User extends Authenticatable
 
     protected function followersRelation(): HasMany
     {
-        return $this->hasMany(Follower::class, 'follow_id');
+        return $this->hasMany(Follower::class, 'id','follow_id');
     }
 
     public function followers()
@@ -62,8 +62,19 @@ class User extends Authenticatable
     }
 
 
-    public function chats(): HasMany
+    public function chats()
     {
-        return $this->hasMany(Chat::class);
+
+        $chats1 = $this->hasMany(Chat::class)->get();
+        $chats2 = $this->hasMany(Chat::class, 'oponent_id', 'id')->get();
+
+        $marged = $chats1->merge($chats2);
+
+//        dd($marged);
+//
+//        dd($this->hasMany(Chat::class));
+
+
+        return $marged;
     }
 }

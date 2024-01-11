@@ -58,17 +58,25 @@
                                                  {{--  USERS--}}
                                                  {{--  USERS--}}
 
-                                                        @foreach($user->chats as $chat)
+                                                        @foreach($user->chats() as $chat)
+
                                                         <li data-bs-dismiss="offcanvas">
                                                             <!-- Chat user tab item -->
                                                             <a href="#chat-{{$chat->id}}" class="nav-link text-start" id="chat-1-tab" data-bs-toggle="pill" role="tab" aria-selected="false" tabindex="-1">
                                                                 <div class="d-flex">
                                                                     <div class="flex-shrink-0 avatar avatar-story me-2 status-online">
-                                                                        <img class="avatar-img rounded-circle" src="{{asset('storage/'. $chat->oponent->profile->photo)}}" alt="">
+                                                                        <img class="avatar-img rounded-circle" src="{{$chat->oponent->id === $user->id ? asset('storage/'.$chat->user->profile->photo) : asset('storage/'.$chat->oponent->profile->photo)}}" alt="">
                                                                     </div>
                                                                     <div class="flex-grow-1 d-block">
-                                                                        <h6 class="mb-0 mt-1">{{$chat->oponent->name}}</h6>
-                                                                        <div class="small text-secondary">{{$chat->messages->first()->content}}</div>
+                                                                        <h6 class="mb-0 mt-1">{{ $chat->oponent->id == $user->id ?
+                                                                          $chat->user->name : $chat->oponent->name}}</h6>
+                                                                        <div class="small text-secondary">
+                                                                            {{
+                                                                            $chat->messages->count()
+                                                                         ? substr($chat->messages->last()->content, 0, 15).'...'
+                                                                         : null
+                                                                         }}
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </a>
@@ -124,17 +132,18 @@
 
 
 
-                            @foreach($user->chats as $chat)
+                            @foreach($user->chats() as $chat)
                             <!-- Conversation item START -->
                             <div class="fade tab-pane h-100" id="chat-{{$chat->id}}" role="tabpanel" aria-labelledby="chat-{{$chat->id}}-tab">
                                 <!-- Top avatar and status START -->
                                 <div class="d-sm-flex justify-content-between align-items-center">
                                     <div class="d-flex mb-2 mb-sm-0">
                                         <div class="flex-shrink-0 avatar me-2">
-                                            <img class="avatar-img rounded-circle" src="{{asset('storage/'. $chat->oponent->profile->photo)}}" alt="">
+                                            <img class="avatar-img rounded-circle" src="{{$chat->oponent->id === $user->id ? asset('storage/'.$chat->user->profile->photo) : asset('storage/'.$chat->oponent->profile->photo)}}" alt="">
                                         </div>
                                         <div class="d-block flex-grow-1">
-                                            <h6 class="mb-0 mt-1">{{$chat->oponent->name}}</h6>
+                                            <h6 class="mb-0 mt-1">{{ $chat->oponent->id == $user->id ?
+                                                                          $chat->user->name : $chat->oponent->name}}</h6>
                                             <div class="small text-secondary"><i class="fa-solid fa-circle text-success me-1"></i>Online</div>
                                         </div>
                                     </div>
@@ -165,6 +174,7 @@
                                                 <div class="text-center small my-2">Jul 16, 2022, 06:15 am</div>
 
 
+                                                @if($chat->messages)
                                                 @foreach($chat->messages as $message)
 
                                                     @if($message->user_id != auth()->user()->id )
@@ -200,6 +210,7 @@
 
                                                 @endforeach
 
+                                                @endif
 
 
                                             </div></div></div><div class="os-scrollbar os-scrollbar-horizontal os-scrollbar-unusable os-scrollbar-auto-hidden"><div class="os-scrollbar-track os-scrollbar-track-off"><div class="os-scrollbar-handle" style="width: 100%; transform: translate(0px, 0px);"></div></div></div><div class="os-scrollbar os-scrollbar-vertical os-scrollbar-auto-hidden"><div class="os-scrollbar-track os-scrollbar-track-off"><div class="os-scrollbar-handle" style="height: 45.6415%; transform: translate(0px, 0px);"></div></div></div><div class="os-scrollbar-corner"></div></div>
