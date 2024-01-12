@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileEditRequest;
 use App\Http\Requests\UserRequest;
+use App\Models\Message;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+
     public function sign_in(){
         return view('sign_in');
     }
@@ -93,19 +95,10 @@ class UserController extends Controller
     public function follow(Request $request)
     {
 
-
-
-
         $user = \auth()->user();
-
 //        dd($user->subscriptions());
-
-
 //        $ooo = new HasMany();
-
-
         $data = ['success' => true];
-
         $subs = $user->subscriptions->pluck('follow_id')->toArray();
 
 //        foreach ($user->subscriptions as $sub){
@@ -117,7 +110,6 @@ class UserController extends Controller
             }
 //        }
 
-
         $follow = $user->subscriptions()->create($request->all());
 
         if($follow){
@@ -126,4 +118,30 @@ class UserController extends Controller
         return response()->json(['success' => false], 400);
 
     }
+
+
+    public function sendMessage(Request $request)
+    {
+
+        $user = User::query()->where('id', $request->user_id)->first();
+
+        if($user == \auth()->user())
+        {
+            $chat_id = str_replace('chat-', '', $request->chat_id);
+
+            if(strlen($chat_id) == 0){
+                return response()->json(['success' => false, 'message' => 'chat not exist']);
+            }
+            $content = htmlspecialchars($request->message);
+            $message = Message::create(['user_id' => $user->id, 'chat_id' => $chat_id, 'content' => $content]);
+
+            return response()->json(['success' => true, 'message' => $message->content, 'time' =>\Carbon\Carbon::createFromTimeStamp(strtotime($message->created_at))->diffForHumans()]);
+        }
+
+
+        return response()->json(['success' => false, 'message' => 'error']);
+    }
+
+
+
 }

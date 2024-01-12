@@ -45,7 +45,7 @@
                                 </button>
 {{--                                <button class="btn btn-danger-soft me-2 follow" type="button"> <i class="bi bi-patch-check"></i> Follow </button>--}}
 
-                                <a href="{{route('messaging')}}" class="btn btn-danger-soft me-2"> <i class="bi bi-chat-left"></i> Message </a>
+                                <a href="{{route('messaging')}}?user={{$user->id}}" class="btn btn-danger-soft me-2"> <i class="bi bi-chat-left"></i> Message </a>
                                 <div class="dropdown">
                                     <!-- Card share action menu -->
                                     <button class="icon-md btn btn-light" type="button" id="profileAction2" data-bs-toggle="dropdown" aria-expanded="false">

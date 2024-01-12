@@ -6,7 +6,7 @@
             <div class="d-flex align-items-center">
                 <!-- Avatar -->
                 <div class="avatar me-2">
-                    <a href="#"> <img class="avatar-img rounded-circle" src="{{asset('storage/'. $post->user->profile->photo)}}" alt=""> </a>
+                    <a href="#"> <img class="avatar-img rounded-circle" src="{{$post->user->profile->photo ? asset('storage/'. $post->user->profile->photo) : asset('img/12.jpg')}}" alt=""> </a>
                 </div>
                 <!-- Title -->
                 <div>

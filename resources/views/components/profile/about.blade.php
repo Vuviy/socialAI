@@ -8,7 +8,7 @@
         </div>
         <!-- Card body START -->
         <div class="card-body position-relative pt-0">
-            <p>He moonlights difficult engrossed it, sportsmen. Interested has all Devonshire difficulty gay assistance joy.</p>
+            <p>{{$user->profile->overview}}</p>
             <!-- Date time -->
             <ul class="list-unstyled mt-3 mb-0">
                 <li class="mb-2"> <i class="bi bi-calendar-date fa-fw pe-1"></i> Born: <strong> {{date('F j, Y', strtotime($user->profile->birthday))}} </strong> </li>

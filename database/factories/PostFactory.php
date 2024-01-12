@@ -2,13 +2,14 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class UserFactory extends Factory
+class PostFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,11 +19,9 @@ class UserFactory extends Factory
     public function definition()
     {
 
-        $arr = ['a','b','e','t','q','z','i','o','d','l','x',];
         return [
-            'name' => fake()->firstName(),
-            'email' => $arr[random_int(0, 10)].'@'.$arr[random_int(0, 10)].'.'.$arr[random_int(0, 10)],
-            'password' => '$2y$10$Ta2MBVfhH20K90RZ/vPM9.99xtg8ZL4I18ZLJa.S.PIlodEBBgbPG', // password
+            'user_id' => User::query()->inRandomOrder()->value('id'),
+            'content' => fake()->realText(),
         ];
     }
 

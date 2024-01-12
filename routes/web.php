@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,21 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//Route::get('/', function (){
+//
+////    dd(User::query()->inRandomOrder()->value('id'));
+//
+////    $users = User::query()->where('id', '>', 2)->get();
+//
+//    $ddd = 'chat-';
+//    $chat_id = str_replace('chat-', '', $ddd);
+//
+//    dd(strlen($chat_id) == 0);
+//});
+
+
 Route::group(['middleware' => 'auth'], function (){
     Route::get('/settings', [\App\Http\Controllers\HomeController::class, 'settings'])->name('settings');
     Route::get('/messaging', [\App\Http\Controllers\HomeController::class, 'messaging'])->name('messaging');
@@ -52,5 +68,6 @@ Route::get('/user/{name}', [\App\Http\Controllers\HomeController::class, 'showUs
 
 
 Route::post('/follow', [\App\Http\Controllers\UserController::class, 'follow'])->name('follow');
+Route::post('/send-message', [\App\Http\Controllers\UserController::class, 'sendMessage'])->name('send-message');
 
 //

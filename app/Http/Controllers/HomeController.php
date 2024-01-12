@@ -27,20 +27,25 @@ class HomeController extends Controller
         return view('settings', compact('user'));
     }
 
-    public function messaging(){
-
-
-//        $chat = Chat::query()->first();
-
-
-
+    public function messaging(Request $request){
 
 
         $user =  \auth()->user();
+        $messageTo = '';
+        if($request->get('user')){
 
-//        dd($chat->oponent);
+            $chats = $user->chats();
 
-
+            $chatsArr = [];
+            foreach ($chats as $chat){
+                $chatsArr[] = $chat->user_id;
+                $chatsArr[] = $chat->oponent_id;
+            }
+            if(!in_array($request->get('user'), $chatsArr)){
+                $chat = Chat::create(['user_id' => $user->id, 'oponent_id' => $request->get('user')]);
+    //            $messageTo = User::query()->where('id', $request->get('user'))->first();
+            }
+        }
 
         return view('messaging', compact('user'));
     }
