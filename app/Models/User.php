@@ -45,7 +45,7 @@ class User extends Authenticatable
     public function subscriptions()
     {
         $arr = $this->subscriptionsRelation->pluck('follow_id')->toArray();
-        return User::query()->where('id', $arr)->get();
+        return User::query()->whereIn('id', $arr)->get();
     }
 
 
@@ -58,23 +58,23 @@ class User extends Authenticatable
     {
         $arr = $this->followersRelation->pluck('user_id')->toArray();
 
-        return User::query()->where('id', $arr)->get();
+        return User::query()->whereIn('id', $arr)->get();
     }
 
 
     public function chats()
     {
 
-        $chats1 = $this->hasMany(Chat::class)->get();
-        $chats2 = $this->hasMany(Chat::class, 'oponent_id', 'id')->get();
+        $chats1 = $this->hasMany(Chat::class)->orderBy('updated_at')->get();
+        $chats2 = $this->hasMany(Chat::class, 'oponent_id', 'id')->orderBy('updated_at')->get();
 
         $marged = $chats1->merge($chats2);
 
-//        dd($marged);
+//        dd($marged->sortByDesc('updated_at'));
 //
 //        dd($this->hasMany(Chat::class));
 
 
-        return $marged;
+        return $marged->sortByDesc('updated_at');
     }
 }

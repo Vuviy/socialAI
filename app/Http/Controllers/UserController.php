@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileEditRequest;
 use App\Http\Requests\UserRequest;
+use App\Models\Follower;
 use App\Models\Message;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -94,23 +95,18 @@ class UserController extends Controller
 
     public function follow(Request $request)
     {
-
         $user = \auth()->user();
-//        dd($user->subscriptions());
-//        $ooo = new HasMany();
         $data = ['success' => true];
-        $subs = $user->subscriptions->pluck('follow_id')->toArray();
+        $subs = $user->subscriptions()->pluck('id')->toArray();
 
-//        foreach ($user->subscriptions as $sub){
             if(in_array($request->follow_id, $subs)){
-                $user->subscriptions()->where('follow_id', $request->follow_id)->delete();
+                Follower::query()->where('follow_id', $request->follow_id)->where('user_id', $user->id)->delete();
                 $data['action'] = 'unfollow';
                 return response()->json($data, 200);
 
             }
-//        }
 
-        $follow = $user->subscriptions()->create($request->all());
+        $follow = Follower::create(['user_id' => $user->id, 'follow_id' => $request->follow_id]);
 
         if($follow){
             return response()->json($data, 201);
@@ -134,6 +130,9 @@ class UserController extends Controller
             }
             $content = htmlspecialchars($request->message);
             $message = Message::create(['user_id' => $user->id, 'chat_id' => $chat_id, 'content' => $content]);
+            if($message){
+                $message->chat()->touch();
+            }
 
             return response()->json(['success' => true, 'message' => $message->content, 'time' =>\Carbon\Carbon::createFromTimeStamp(strtotime($message->created_at))->diffForHumans()]);
         }

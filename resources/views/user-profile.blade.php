@@ -35,14 +35,18 @@
 
 {{--                                @if($user->followers)--}}
 
+{{--                                @dd($user->followersRelation)--}}
+{{--                                @dd(auth()->user()->subscriptions()->pluck('id')->toArray())--}}
 {{--                                @endif--}}
+                                @if(auth()->user())
                                 <button class="btn btn-danger-soft me-2 follow" type="button">
-                                    @if(in_array(auth()->user()->id, $user->followers()->pluck('id')->toArray()))
+                                    @if(in_array($user->id, auth()->user()->subscriptions()->pluck('id')->toArray()))
                                         Unfollow
                                     @else
                                         <i class="bi bi-patch-check"></i> Follow
                                     @endif
                                 </button>
+                                @endif
 {{--                                <button class="btn btn-danger-soft me-2 follow" type="button"> <i class="bi bi-patch-check"></i> Follow </button>--}}
 
                                 <a href="{{route('messaging')}}?user={{$user->id}}" class="btn btn-danger-soft me-2"> <i class="bi bi-chat-left"></i> Message </a>
