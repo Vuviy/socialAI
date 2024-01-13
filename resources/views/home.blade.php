@@ -90,3 +90,4 @@
 
 @endsection
 
+@include('js.like')

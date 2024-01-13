@@ -39,10 +39,10 @@
         <!-- Feed react START -->
         <ul class="nav nav-stack pb-2 small">
             <li class="nav-item">
-                <a class="nav-link active text-secondary" href="#!"> <i class="bi bi-heart-fill me-1 icon-xs bg-danger text-white rounded-circle"></i> {{$post->likes}} </a>
+                <button class="nav-link active text-secondary btn-like" data-id="{{$post->id}}"> <i class="bi bi-heart-fill me-1 icon-xs bg-danger text-white rounded-circle"></i> {{$post->likes->count()}} </button>
             </li>
             <li class="nav-item ms-sm-auto">
-                <a class="nav-link" href="#!"> <i class="bi bi-chat-fill pe-1"></i>Comments (12)</a>
+                <a class="nav-link" href="#"> <i class="bi bi-chat-fill pe-1"></i>Comments (0)</a>
             </li>
         </ul>
         <!-- Feed react END -->
@@ -52,9 +52,9 @@
     <div class="card-footer py-3">
         <!-- Feed react START -->
         <ul class="nav nav-fill nav-stack small">
-            <li class="nav-item">
-                <a class="nav-link mb-0 active" href="#!"> <i class="bi bi-heart pe-1"></i>Liked ({{$post->likes}})</a>
-            </li>
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link mb-0 active" href="#"> <i class="bi bi-heart pe-1"></i>Liked ({{$post->likes->count()}})</a>--}}
+{{--            </li>--}}
             <!-- Card share action dropdown START -->
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link mb-0" id="cardShareAction6" data-bs-toggle="dropdown" aria-expanded="false">
@@ -79,3 +79,4 @@
     </div>
     <!-- Card Footer END -->
 </div>
+

@@ -65,8 +65,8 @@ class User extends Authenticatable
     public function chats()
     {
 
-        $chats1 = $this->hasMany(Chat::class)->orderBy('updated_at')->get();
-        $chats2 = $this->hasMany(Chat::class, 'oponent_id', 'id')->orderBy('updated_at')->get();
+        $chats1 = $this->hasMany(Chat::class)->get();
+        $chats2 = $this->hasMany(Chat::class, 'oponent_id', 'id')->get();
 
         $marged = $chats1->merge($chats2);
 
@@ -76,5 +76,11 @@ class User extends Authenticatable
 
 
         return $marged->sortByDesc('updated_at');
+    }
+
+
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class);
     }
 }

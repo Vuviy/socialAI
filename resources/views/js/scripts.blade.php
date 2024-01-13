@@ -13,7 +13,7 @@
                 url: '{{route('follow')}}',
                 data: {
                     "_token": "{{ csrf_token() }}",
-                    "follow_id": {{$user->id}}
+                    "follow_id": {{auth()->user() ? $user->id : 'null'}},
                 },
                 type: 'post',
                 success: function(data)
@@ -68,7 +68,7 @@
                 url: '{{route('send-message')}}',
                 data: {
                     "_token": "{{ csrf_token() }}",
-                    "user_id": {{$user->id}},
+                    "user_id": {{auth()->user() ? $user->id : 'null'}},
                     "chat_id": $('div.active').attr('id'),
                     "message": $('#message-content').val(),
                 },
@@ -151,3 +151,4 @@
     });
 </script>
 {{--messanging END--}}
+
