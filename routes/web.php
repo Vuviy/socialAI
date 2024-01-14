@@ -70,5 +70,6 @@ Route::get('/user/{name}', [\App\Http\Controllers\HomeController::class, 'showUs
 Route::post('/follow', [\App\Http\Controllers\UserController::class, 'follow'])->name('follow');
 Route::post('/send-message', [\App\Http\Controllers\UserController::class, 'sendMessage'])->name('send-message');
 Route::post('/like', [\App\Http\Controllers\HomeController::class, 'like'])->name('like');
+Route::post('/comment', [\App\Http\Controllers\HomeController::class, 'sendComment'])->name('comment');
 
 //

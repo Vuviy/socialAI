@@ -52,10 +52,24 @@
 
         $('li[data-bs-dismiss="offcanvas"]').on('click', function (){
             $('.send-message').prop("disabled", false)
+                let chatContent = $('div.active').find('div.chat-conversation-content');
 
-            let chatContent = $('div.active').find('div.chat-conversation-content');
-            chatContent.overlayScrollbars();
-            chatContent.overlayScrollbars().scroll({ y: '100%', behavior: 'smooth'  });
+            // // Initialize overlayScrollbars if not already initialized
+            // if (!chatContent.data('overlayScrollbars')) {
+            //     chatContent.overlayScrollbars({
+            //         overflowBehavior: {
+            //             y: 'scroll'
+            //         }
+            //     });
+            // }
+            //
+            // // Scroll to the bottom
+            // chatContent.overlayScrollbars().scroll({ y: '100%', behavior: 'smooth' });
+
+            setTimeout(function (){
+                chatContent.overlayScrollbars();
+                chatContent.overlayScrollbars().scroll({ y: '100%', behavior: 'smooth'  });
+            }, 100)
         })
 
         $('.send-message').on('click', function (){

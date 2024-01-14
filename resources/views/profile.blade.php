@@ -162,3 +162,5 @@
         </div> <!-- Row END -->
     </div>
 @endsection
+@include('js.like')
+@include('js.comment')

@@ -23,17 +23,17 @@
 {{--            </div>--}}
             <!-- Share feed END -->
 
-            <!-- Card feed item START  post 1-->
+{{--            <!-- Card feed item START  post 1-->--}}
 {{--            @include('components.card_items.post-1')--}}
-            <!-- Card feed item END -->
+{{--            <!-- Card feed item END -->--}}
 
-            <!-- Card feed item START post 2-->
+{{--            <!-- Card feed item START post 2-->--}}
 {{--            @include('components.card_items.post-2')--}}
-            <!-- Card feed item END -->
+{{--            <!-- Card feed item END -->--}}
 
-            <!-- Card feed item START post 3-->
+{{--            <!-- Card feed item START post 3-->--}}
 {{--            @include('components.card_items.post-3')--}}
-            <!-- Card feed item END -->
+{{--            <!-- Card feed item END -->--}}
 
             <!-- Card feed item START post text -->
             @foreach($posts as $post)
@@ -91,3 +91,4 @@
 @endsection
 
 @include('js.like')
+@include('js.comment')

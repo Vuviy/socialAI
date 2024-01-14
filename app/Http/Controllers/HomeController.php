@@ -96,4 +96,65 @@ class HomeController extends Controller
 
     }
 
+
+
+    public function sendComment(Request $request)
+    {
+        if(!$request->post_id)
+        {
+            return response()->json(['success' => false, 'message' => 'Post not exist']);
+        }
+
+
+//        $user = User::query()->where('id', $request->user_id)->first();
+        $user = \auth()->user();
+        $post = Post::query()->find($request->post_id);
+
+        if(!$post)
+        {
+            return response()->json(['success' => false, 'message' => 'Post not exist']);
+        }
+
+        if($user)
+        {
+
+            $comment = $post->comments()->create(['user_id' => $user->id, 'text' => e($request->text)]);
+
+            $com =
+                  '<li class="comment-item">
+                    <div class="d-flex position-relative">
+                        <!-- Avatar -->
+                        <div class="avatar avatar-xs">
+                            <a href="'. route('show.user', ['name' => $comment->user->name]).'"><img class="avatar-img rounded-circle" src="'. asset('storage/'.$comment->user->profile->photo).'" alt=""></a>
+                        </div>
+                        <div class="ms-2">
+                            <!-- Comment by -->
+                            <div class="bg-light rounded-start-top-0 p-3 rounded">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="mb-1"> <a href="'.route('show.user', ['name' => $comment->user->name]).'"> '.$comment->user->name.' </a></h6>
+                                    <small class="ms-2">'.\Carbon\Carbon::createFromTimeStamp(strtotime($comment->created_at))->diffForHumans().'</small>
+                                </div>
+                                <p class="small mb-0">'.   nl2br($comment->text).'</p>
+                            </div>
+                            <!-- Comment react -->
+                            <ul class="nav nav-divider py-2 small">
+                                <li class="nav-item">
+                                    <button class="nav-link" data-reply-id="'.$comment->id.'"> Reply</button>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </li>';
+
+
+
+            return response()->json(['success' => true, 'comment' => $com]);
+        }
+
+
+        return response()->json(['success' => false, 'message' => 'Your not login']);
+
+    }
+
 }

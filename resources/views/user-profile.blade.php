@@ -183,3 +183,5 @@
 
 @include('js.scripts')
 
+@include('js.like')
+@include('js.comment')
