@@ -30,5 +30,6 @@ class Post extends Model
     public function comments(): MorphMany
     {
         return $this->morphMany(Comment::class, 'commentable');
+//            ->join('comments', 'comments.id', '=', 'comments.reply_id');
     }
 }

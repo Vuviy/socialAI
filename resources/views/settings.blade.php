@@ -37,22 +37,25 @@
                                 <!-- Side Nav START -->
                                 <ul class="nav nav-tabs nav-pills nav-pills-soft flex-column fw-bold gap-2 border-0" role="tablist">
                                     <li class="nav-item" data-bs-dismiss="offcanvas" role="presentation">
-                                        <a class="nav-link d-flex mb-0 active" href="#nav-setting-tab-1" data-bs-toggle="tab" aria-selected="true" role="tab"> <img class="me-2 h-20px fa-fw" src="{{@asset('img')}}/person-outline-filled.svg" alt=""><span>Account </span></a>
+                                        <a class="nav-link d-flex mb-0 active" href="#nav-setting-tab-1" data-bs-toggle="tab" aria-selected="true" role="tab"> <img class="me-2 h-20px fa-fw" src="{{asset('img')}}/person-outline-filled.svg" alt=""><span>Account </span></a>
                                     </li>
                                     <li class="nav-item" data-bs-dismiss="offcanvas" role="presentation">
-                                        <a class="nav-link d-flex mb-0" href="#nav-setting-tab-2" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab"> <img class="me-2 h-20px fa-fw" src="{{@asset('img')}}/notification-outlined-filled.svg" alt=""><span>Notification </span></a>
+                                        <a class="nav-link d-flex mb-0" href="#nav-setting-tab-2" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab"> <img class="me-2 h-20px fa-fw" src="{{asset('img')}}/notification-outlined-filled.svg" alt=""><span>Notification </span></a>
                                     </li>
                                     <li class="nav-item" data-bs-dismiss="offcanvas" role="presentation">
-                                        <a class="nav-link d-flex mb-0" href="#nav-setting-tab-3" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab"> <img class="me-2 h-20px fa-fw" src="{{@asset('img')}}/shield-outline-filled.svg" alt=""><span>Privacy and safety </span></a>
+                                        <a class="nav-link d-flex mb-0" href="#nav-setting-tab-3" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab"> <img class="me-2 h-20px fa-fw" src="{{asset('img')}}/shield-outline-filled.svg" alt=""><span>Privacy and safety </span></a>
                                     </li>
                                     <li class="nav-item" data-bs-dismiss="offcanvas" role="presentation">
-                                        <a class="nav-link d-flex mb-0" href="#nav-setting-tab-4" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab"> <img class="me-2 h-20px fa-fw" src="{{@asset('img')}}/handshake-outline-filled.svg" alt=""><span>Communications </span></a>
+                                        <a class="nav-link d-flex mb-0" href="#nav-setting-tab-4" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab"> <img class="me-2 h-20px fa-fw" src="{{asset('img')}}/handshake-outline-filled.svg" alt=""><span>Communications </span></a>
                                     </li>
                                     <li class="nav-item" data-bs-dismiss="offcanvas" role="presentation">
-                                        <a class="nav-link d-flex mb-0" href="#nav-setting-tab-5" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab"> <img class="me-2 h-20px fa-fw" src="{{@asset('img')}}/chat-alt-outline-filled.svg" alt=""><span>Messaging </span></a>
+                                        <a class="nav-link d-flex mb-0" href="#nav-setting-tab-5" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab"> <img class="me-2 h-20px fa-fw" src="{{asset('img')}}/chat-alt-outline-filled.svg" alt=""><span>Messaging </span></a>
                                     </li>
                                     <li class="nav-item" data-bs-dismiss="offcanvas" role="presentation">
-                                        <a class="nav-link d-flex mb-0" href="#nav-setting-tab-6" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab"> <img class="me-2 h-20px fa-fw" src="{{@asset('img')}}/trash-var-outline-filled.svg" alt=""><span>Close account </span></a>
+                                        <a class="nav-link d-flex mb-0" href="#nav-setting-tab-6" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab"> <img class="me-2 h-20px fa-fw" src="{{asset('img')}}/trash-var-outline-filled.svg" alt=""><span>Close account </span></a>
+                                    </li>
+                                    <li class="nav-item" data-bs-dismiss="offcanvas" role="presentation">
+                                        <a class="nav-link d-flex mb-0" href="#nav-setting-tab-7" data-bs-toggle="tab" aria-selected="false" tabindex="-1" role="tab"> <img class="me-2 h-20px fa-fw" src="{{asset('img')}}/artificial-intelligence-icon.svg" alt=""><span>AI user </span></a>
                                     </li>
                                 </ul>
                                 <!-- Side Nav END -->
@@ -61,7 +64,7 @@
                             <!-- Card body END -->
                             <!-- Card footer -->
                             <div class="card-footer text-center py-2">
-                                <a class="btn btn-link text-secondary btn-sm" href="#!">View Profile </a>
+                                <a class="btn btn-link text-secondary btn-sm" href="{{route('profile')}}">View Profile </a>
                             </div>
                         </div>
                         <!-- Card END -->
@@ -791,6 +794,143 @@
                     <!-- Card END -->
                 </div>
                 <!-- Close account tab END -->
+
+                <!-- Close AI user tab START -->
+                <div class="tab-pane fade" id="nav-setting-tab-7" role="tabpanel">
+
+
+                    <!-- Change your password START -->
+                    <div class="card mb-1">
+                        <!-- Title START -->
+                        <div class="card-header border-0 pb-0">
+                            <h5 class="card-title">Your AI</h5>
+                            <p class="mb-0">See resolved goodness felicity shy civility domestic had but.</p>
+                        </div>
+                        <!-- Title START -->
+                        <div class="card-body">
+                            <!-- Settings START -->
+
+                            @if($user->aiUsers->count())
+
+                                    <!-- AI START -->
+{{--                                    <ul class="list-group">--}}
+                                @foreach($user->aiUsers as $aiuser)
+
+                                        <!-- AIUser item -->
+                                        <div class="list-group-item d-md-flex justify-content-between align-items-start border rounded-2 p-3 m-1">
+                                            <div class="me-md-3">
+                                                <h6 class="mb-0">{{$aiuser->name}}</h6>
+                                                <p class="small mb-0">Active: {{$aiuser->active ? 'active' : 'not active'}} </p>
+                                                <p class="small mb-0">Created: {{$aiuser->created ? 'created' : 'not created'}} </p>
+                                            </div>
+                                            <button class="btn btn-primary-soft btn-sm mt-1 mt-md-0"> <i class="bi bi-pencil-square"></i> Change</button>
+                                        </div>
+                                @endforeach
+{{--                                    </ul>--}}
+                            @else
+                                <h2>You haven't AI users</h2>
+                            @endif
+                            <!-- Settings END -->
+                        </div>
+                    </div>
+                    <!-- Card END -->
+
+                    <!-- Card START -->
+                    <div class="card mb-4">
+
+                        @if(session()->has('status'))
+
+
+                        <div class="alert alert-success m-3" role="alert">
+                            <h4 class="alert-heading">Well done!</h4>
+                            <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                            <hr>
+                            <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                        </div>
+                        @endif
+                        <!-- Title START -->
+                        <div class="card-header border-0 pb-0">
+                            <h1 class="h5 card-title">AI user</h1>
+                            <p class="mb-0">He moonlights difficult engrossed it, sportsmen. Interested has all Devonshire difficulty gay assistance joy. Unaffected at ye of compliment alteration to.</p>
+                        </div>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <!-- Card header START -->
+                        <!-- Card body START -->
+                        <div class="card-body">
+                            <!-- Form settings START -->
+                            <form class="row g-3" action="{{route('aiprototype.create')}}" method="post">
+                                @csrf
+                                <!-- First name -->
+                                <div class="col-sm-6 col-lg-4">
+                                    <label class="form-label">Name</label>
+                                    <input type="text" name="name" class="form-control">
+                                </div>
+                                <!-- Sex -->
+                                <div class="col-sm-6 col-lg-4">
+                                    <label class="form-label">Sex</label>
+                                    <input type="text" name="sex" class="form-control">
+                                </div>
+                                <!-- Age -->
+                                <div class="col-sm-6 col-lg-4">
+                                    <label class="form-label">Age</label>
+                                    <input type="number" name="age" class="form-control">
+                                </div>
+
+                                <!-- Page information -->
+                                <div class="col-12">
+                                    <label class="form-label">Опис зовнішності</label>
+                                    <textarea class="form-control" name="appearance" rows="4" placeholder="Description (Required)"></textarea>
+                                    <small>Character limit: 300</small>
+                                </div>
+
+                                <!-- Page information -->
+                                <div class="col-12">
+                                    <label class="form-label">Опис характеру</label>
+                                    <textarea class="form-control" name="character" rows="4" placeholder="Description (Required)"></textarea>
+                                    <small>Character limit: 300</small>
+                                </div>
+
+                                <!-- Page information -->
+                                <div class="col-12">
+                                    <label class="form-label">Вподобання</label>
+                                    <textarea class="form-control" name="likes" rows="4" placeholder="Description (Required)"></textarea>
+                                    <small>Character limit: 300</small>
+                                </div>
+
+                                <!-- Page information -->
+                                <div class="col-12">
+                                    <label class="form-label">Що не подобається</label>
+                                    <textarea class="form-control" name="dislikes" rows="4" placeholder="Description (Required)"></textarea>
+                                    <small>Character limit: 300</small>
+                                </div>
+
+                                <!-- Page information -->
+                                <div class="col-12">
+                                    <label class="form-label">Улюблені заняття</label>
+                                    <textarea class="form-control" name="activities" rows="4" placeholder="Description (Required)"></textarea>
+                                    <small>Character limit: 300</small>
+                                </div>
+
+                                <!-- Button  -->
+                                <div class="col-12 text-end">
+                                    <button type="submit" class="btn btn-sm btn-primary mb-0">Save changes</button>
+                                </div>
+                            </form>
+                            <!-- Settings END -->
+                        </div>
+                        <!-- Card body END -->
+                    </div>
+                    <!-- Card END -->
+                </div>
+                <!-- Close AI user tab END -->
 
             </div>
             <!-- Setting Tab content END -->

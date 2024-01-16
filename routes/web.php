@@ -22,16 +22,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+
+
 //Route::get('/', function (){
 //
+//
+//
+//
+//    return response()->json(['success' => 'хуйня', 'comment' => 'срфка'], 200, [], JSON_UNESCAPED_UNICODE);
+//
+//    dd(3);
 ////    dd(User::query()->inRandomOrder()->value('id'));
 //
 ////    $users = User::query()->where('id', '>', 2)->get();
 //
-//    $ddd = 'chat-';
-//    $chat_id = str_replace('chat-', '', $ddd);
+//    $ddd = \App\Models\Post::query()->with('comments.replies') ->find(51);
+////    $chat_id = str_replace('chat-', '', $ddd);
 //
-//    dd(strlen($chat_id) == 0);
+//    dd($ddd->comments);
 //});
 
 
@@ -55,13 +63,6 @@ Route::group([], function (){
 
 Route::group([], function (){
     Route::post('/post-create', [\App\Http\Controllers\PostController::class, 'create'])->name('post.create');
-//    Route::get('/sign_up', [\App\Http\Controllers\UserController::class, 'sign_up'])->name('sign_up');
-//
-//    Route::post('/register', [\App\Http\Controllers\UserController::class, 'register'])->name('register');
-//    Route::post('/login', [\App\Http\Controllers\UserController::class, 'login'])->name('login');
-//    Route::post('/logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
-//
-//    Route::post('/edit_profile', [\App\Http\Controllers\UserController::class, 'edit_profile'])->name('edit_profile');
 });
 
 Route::get('/user/{name}', [\App\Http\Controllers\HomeController::class, 'showUser'])->middleware('profile')->name('show.user');
@@ -72,4 +73,8 @@ Route::post('/send-message', [\App\Http\Controllers\UserController::class, 'send
 Route::post('/like', [\App\Http\Controllers\HomeController::class, 'like'])->name('like');
 Route::post('/comment', [\App\Http\Controllers\HomeController::class, 'sendComment'])->name('comment');
 
+
+Route::group([], function (){
+    Route::post('/aiprototype-create', [\App\Http\Controllers\AIUserController::class, 'createProto'])->name('aiprototype.create');
+});
 //
